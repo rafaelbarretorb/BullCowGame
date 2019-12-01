@@ -1,0 +1,24 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../include/FBullCowGame.h
+string
+-
+
+../include/main.h
+
+/home/rafaelbarreto/Cpp/BullCowGame/src/main.cpp
+iostream
+-
+string
+-
+main.h
+/home/rafaelbarreto/Cpp/BullCowGame/src/main.h
+FBullCowGame.h
+/home/rafaelbarreto/Cpp/BullCowGame/src/FBullCowGame.h
+
