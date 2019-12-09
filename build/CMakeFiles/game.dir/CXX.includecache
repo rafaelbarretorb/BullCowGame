@@ -12,6 +12,10 @@ string
 iostream
 -
 
+/home/rafaelbarreto/Cpp/BullCowGame/src/FBullCowGame.cpp
+FBullCowGame.h
+-
+
 /home/rafaelbarreto/Cpp/BullCowGame/src/main.cpp
 FBullCowGame.h
 -

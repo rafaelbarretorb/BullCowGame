@@ -5,4 +5,6 @@ add_compile_options(-std=c++11)
 
 include_directories(include)
 
-add_executable(main src/main.cpp)
+add_executable(game 
+               src/main.cpp
+               src/FBullCowGame.cpp)
