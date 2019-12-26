@@ -14,7 +14,15 @@ void FBullCowGame::PrintGameIntro()
 {
 	// introduce the game
 	constexpr int WORLD_LENGTH = 5;// constant expression
-	std::cout << "\n\nWelcome to Bull and Cows!" << std::endl;
+
+	std::cout << "\n\n" << std::endl;
+	std::cout << "******************************************************* " << std::endl;
+	std::cout << "******************************************************* " << std::endl;
+	std::cout << "********** WELCOME TO BULLS AND COWS GAME!!! ********** " << std::endl;
+	std::cout << "******************************************************* " << std::endl;
+	std::cout << "******************************************************* " << std::endl;
+	std::cout << "\n" << std::endl;
+
 	std::cout << "Can you guess the " << WORLD_LENGTH;
 	std::cout << " letter isogram I'm thinking of?\n";
 }
@@ -72,9 +80,14 @@ void FBullCowGame::PlayGame()
 			MyCurrentTry--;
 		}
 
+		UpdateBullCowCount(Guess);
+
 		
     if (IsGameWon()) {
-			std::cout << "Congratulations! You won the game!" << std::endl;
+			std::cout << "\n" << std::endl;
+			std::cout << "******************************************************* " << std::endl;
+			std::cout << "********  CONGRATULATIONS! YOU WON THE GAME!  ********* " << std::endl;
+			std::cout << "******************************************************* " << std::endl;
 			return;
 
 		}
@@ -123,13 +136,14 @@ void FBullCowGame::UpdateBullCowCount(std::string PlayerGuess) {
 			BullCowCount.Bulls++;
 		}
 		for (int j = 0; j < PlayerGuess.length(); j++) {
-			if (PlayerGuess[j] == HiddenWord[i]) {
+			if (PlayerGuess[j] == HiddenWord[i] && j != i) {
 				BullCowCount.Cows++;
 			}
 		}
-		BullCowCount.Cows = BullCowCount.Cows - BullCowCount.Bulls;
 	}
 
+	std::cout << "Bulls = " << BullCowCount.Bulls << "    ";
+	std::cout << "Cows = " << BullCowCount.Cows << std::endl;
 
 }
 
@@ -143,41 +157,41 @@ bool FBullCowGame::CheckGuessValidity(std::string PlayerGuess)
 
 	for (int i = 0; i < PlayerGuess.length(); i++)
   {
-		if (PlayerGuess[i] != 'a' || PlayerGuess[i] != 'A' ||
-		    PlayerGuess[i] != 'b' || PlayerGuess[i] != 'B' ||
-				PlayerGuess[i] != 'c' || PlayerGuess[i] != 'C' ||
-				PlayerGuess[i] != 'd' || PlayerGuess[i] != 'D' ||
-				PlayerGuess[i] != 'e' || PlayerGuess[i] != 'E' ||
-				PlayerGuess[i] != 'f' || PlayerGuess[i] != 'F' ||
-				PlayerGuess[i] != 'g' || PlayerGuess[i] != 'G' ||
-				PlayerGuess[i] != 'h' || PlayerGuess[i] != 'H' ||
-				PlayerGuess[i] != 'i' || PlayerGuess[i] != 'I' ||
-				PlayerGuess[i] != 'j' || PlayerGuess[i] != 'J' ||
-				PlayerGuess[i] != 'k' || PlayerGuess[i] != 'K' ||
-				PlayerGuess[i] != 'l' || PlayerGuess[i] != 'L' ||
-				PlayerGuess[i] != 'm' || PlayerGuess[i] != 'M' ||
-				PlayerGuess[i] != 'n' || PlayerGuess[i] != 'N' ||
-				PlayerGuess[i] != 'o' || PlayerGuess[i] != 'O' ||
-				PlayerGuess[i] != 'p' || PlayerGuess[i] != 'P' ||
-				PlayerGuess[i] != 'q' || PlayerGuess[i] != 'Q' ||
-				PlayerGuess[i] != 'r' || PlayerGuess[i] != 'R' ||
-				PlayerGuess[i] != 's' || PlayerGuess[i] != 'S' ||
-				PlayerGuess[i] != 't' || PlayerGuess[i] != 'T' ||
-				PlayerGuess[i] != 'u' || PlayerGuess[i] != 'U' ||
-				PlayerGuess[i] != 'v' || PlayerGuess[i] != 'V' ||
-				PlayerGuess[i] != 'w' || PlayerGuess[i] != 'W' ||
-				PlayerGuess[i] != 'x' || PlayerGuess[i] != 'X' ||
-				PlayerGuess[i] != 'y' || PlayerGuess[i] != 'Y' ||
-				PlayerGuess[i] != 'z' || PlayerGuess[i] != 'Z')
+		if (!(PlayerGuess[i] == 'a' || PlayerGuess[i] == 'A' ||
+		    PlayerGuess[i] == 'b' || PlayerGuess[i] == 'B' ||
+				PlayerGuess[i] == 'c' || PlayerGuess[i] == 'C' ||
+				PlayerGuess[i] == 'd' || PlayerGuess[i] == 'D' ||
+				PlayerGuess[i] == 'e' || PlayerGuess[i] == 'E' ||
+				PlayerGuess[i] == 'f' || PlayerGuess[i] == 'F' ||
+				PlayerGuess[i] == 'g' || PlayerGuess[i] == 'G' ||
+				PlayerGuess[i] == 'h' || PlayerGuess[i] == 'H' ||
+				PlayerGuess[i] == 'i' || PlayerGuess[i] == 'I' ||
+				PlayerGuess[i] == 'j' || PlayerGuess[i] == 'J' ||
+				PlayerGuess[i] == 'k' || PlayerGuess[i] == 'K' ||
+				PlayerGuess[i] == 'l' || PlayerGuess[i] == 'L' ||
+				PlayerGuess[i] == 'm' || PlayerGuess[i] == 'M' ||
+				PlayerGuess[i] == 'n' || PlayerGuess[i] == 'N' ||
+				PlayerGuess[i] == 'o' || PlayerGuess[i] == 'O' ||
+				PlayerGuess[i] == 'p' || PlayerGuess[i] == 'P' ||
+				PlayerGuess[i] == 'q' || PlayerGuess[i] == 'Q' ||
+				PlayerGuess[i] == 'r' || PlayerGuess[i] == 'R' ||
+				PlayerGuess[i] == 's' || PlayerGuess[i] == 'S' ||
+				PlayerGuess[i] == 't' || PlayerGuess[i] == 'T' ||
+				PlayerGuess[i] == 'u' || PlayerGuess[i] == 'U' ||
+				PlayerGuess[i] == 'v' || PlayerGuess[i] == 'V' ||
+				PlayerGuess[i] == 'w' || PlayerGuess[i] == 'W' ||
+				PlayerGuess[i] == 'x' || PlayerGuess[i] == 'X' ||
+				PlayerGuess[i] == 'y' || PlayerGuess[i] == 'Y' ||
+				PlayerGuess[i] == 'z' || PlayerGuess[i] == 'Z'))
 		{
 			return false;
 		}		
 	}
 
 	// TODO check if is isogram
-	if (!IsIsogram(PlayerGuess)) {
-		return false;
-	}
+	// if (!IsIsogram(PlayerGuess)) {
+	// 	return false;
+	// }
   return true; 
 }
 
